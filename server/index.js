@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const path = require('path');
 
 // Import routes
 const blogRoutes = require('./routes/blogs');
@@ -23,6 +24,16 @@ app.use('/api/blogs', blogRoutes);
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/blogsite')
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('Could not connect to MongoDB', err));
+
+// Serve static assets in production
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static(path.join(__dirname, '../client/build')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+  });
+}
 
 // Server
 const PORT = process.env.PORT || 5000;
