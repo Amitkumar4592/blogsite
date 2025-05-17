@@ -1,0 +1,93 @@
+.blog-editor {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.editor-header h2 {
+  font-size: 1.8rem;
+  color: var(--secondary-color);
+}
+
+.editor-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.editor-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--secondary-color);
+}
+
+.editor-form input,
+.editor-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.editor-form input:focus,
+.editor-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.editor-form textarea {
+  resize: vertical;
+  min-height: 200px;
+}
+
+.editor-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.editor-actions button {
+  padding: 0.7rem 1.5rem;
+  font-weight: 500;
+}
+
+.auto-save-status {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.auto-save-status span {
+  padding: 0.3rem 0.8rem;
+  background-color: rgba(46, 204, 113, 0.1);
+  color: var(--success-color);
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  .blog-editor {
+    padding: 1.5rem;
+  }
+  
+  .editor-actions {
+    flex-direction: column;
+  }
+  
+  .editor-actions button {
+    width: 100%;
+  }
+}
